@@ -9,16 +9,14 @@
 int main(void)
 {
 	int n;
+	char alp;
 
-	for (n = 48; n < 58; n++)
-	{
-		putchar(n);
-		if (n != 57)
-		{
-			putchar('.');
-			putchar(' ');
-		}
-	}
+	for (n = 0; n < 10; n++)
+		putchar((n % 10) + '0');
+
+	for (alp = 'a'; alp < 'f'; alp++)
+		putchar(alp);
+
 	putchar('\n');
 	return (0);
 }
