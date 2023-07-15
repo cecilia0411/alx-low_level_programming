@@ -1,15 +1,15 @@
 #include <stdio.h>
 
 /**
- * main - print combination of two numbers
+ * main - prints all possible different combinations of two digits
  *
- * Return: 0 when successfull
+ * Return: 0 on success
  */
 
 int main(void)
 {
-	int i = '0';
 	int j = '0';
+	int i = '0';
 
 	while (i <= '9')
 	{
@@ -18,7 +18,7 @@ int main(void)
 			if (!(i > j) || i == j)
 			{
 				putchar(i);
-				putchar(j);
+				putchar(i);
 				if (i == '8' && j == '9')
 				{
 					putchar('\n');
@@ -27,7 +27,6 @@ int main(void)
 				{
 					putchar(',');
 					putchar(' ');
-
 				}
 			}
 			j++;
