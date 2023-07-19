@@ -8,28 +8,21 @@
 
 int main(void)
 {
-	int count = 3;
-	long int first = 1, second = 2;
-	long int next = first + second;
+int inc;
+unsigned long n1 = 0, n2 = 1, n3;
+for (inc = 0; inc < 50; inc++)
+{
+n3 = n1 + n2;
+printf("%lu", n3);
+n1 = n2;
+n2 = n3;
 
-	printf("%lu, ", first);
-	printf("%lu, ", second);
+if (inc == 49)
+printf("\n");
+else
+printf(", ");
 
-	while (count <= 50)
-	{
-	if (count == 50)
-	{
-	printf("%lu \n", next);
-	}
-	else
-	{
-	printf("%lu, ", next);
-	}
-	first = second;
-	second = next;
+}
 
-	next = first + second;
-	count++;
-	}
-	return (0);
+return (0);
 }
