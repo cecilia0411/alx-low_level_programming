@@ -1,63 +1,37 @@
 #include "main.h"
 
 /**
- *_strlen - reset number
- *Description: This function return a length for some string
- *@s: pointer char
- *Return: int length
- */
-
-int _strlen(char *s)
-{
-	int len = 0;
-
-	while (*s++)
-	{
-		len++;
-	}
-	return (len);
-}
-
-/**
 * cap_string - function that capitalize first character of a word
-* @s1: string to capitalize
+* @s: string to capitalize
 * Return: capitalized string
 */
 
-char *cap_string(char *s1)
+char *cap_string(char *s)
 {
 	int i, j;
+	int a[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
 
-	for (i = 0; i < _strlen(s1) - 1; i++)
+	i = 0;
+	while (*(s + i) != '\0')
 	{
-		if (
-			s1[i] == ' ' ||
-			s1[i] == '\t' ||
-			s1[i] == '\n' ||
-			s1[i] == ',' ||
-			s1[i] == ';' ||
-			s1[i] == '.' ||
-			s1[i] == '!' ||
-			s1[i] == '?' ||
-			s1[i] == '"' ||
-			s1[i] == '(' ||
-			s1[i] == ')' ||
-			s1[i] == '{' ||
-			s1[i] == '}' ||
-			i == 0
-		)
+		if (*(s + i) >= 'a' && *(s + i) <= 'z')
 		{
-			for (j = 'a'; j <= 'z'; j++)
+			if (i == 0)
 			{
-				if (s1[i + 1] == j && i != 0)
+				*(s + i) = *(s + i) - 32;
+			}
+			else
+			{
+				for (j = 0; j <= 12; j++)
 				{
-					s1[i + 1] = j - 32;
-				} else if (s1[i] == j && i == 0)
-				{
-					s1[i] = j - 32;
+					if (a[j] == *(s + i - 1))
+					{
+						*(s + i) = *(s + i) - 32;
+					}
 				}
 			}
 		}
+	i++;
 	}
-	return (s1);
+	return (s);
 }
