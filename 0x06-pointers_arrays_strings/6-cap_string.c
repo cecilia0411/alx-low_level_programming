@@ -1,37 +1,63 @@
 #include "main.h"
 
 /**
+ *_strlen - reset number
+ *Description: This function return a length for some string
+ *@s: pointer char
+ *Return: int length
+ */
+
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (*s++)
+	{
+		len++;
+	}
+	return (len);
+}
+
+/**
 * cap_string - function that capitalize first character of a word
-* @str: string to capitalize
+* @s1: string to capitalize
 * Return: capitalized string
 */
 
-char *cap_string(char *str)
+char *cap_string(char *s1)
 {
-	int index = 0;
+	int i, j;
 
-	while (str[++index])
+	for (i = 0; i < _strlen(s1) - 1; i++)
 	{
-		while (!(str[index] >= 'a' && str[index] <= 'z'))
-			index++;
-
-				if (str[index - 1] == ' ' ||
-				str[index - 1] == '\t' ||
-				str[index - 1] == '\n' ||
-				str[index - 1] == ',' ||
-				str[index - 1] == ';' ||
-				str[index - 1] == '.' ||
-				str[index - 1] == '!' ||
-				str[index - 1] == '?' ||
-				str[index - 1] == '"' ||
-				str[index - 1] == '(' ||
-				str[index - 1] == ')' ||
-				str[index - 1] == '{' ||
-				str[index - 1] == '}' ||
-				index == 0)
-					str[index] -= 32;
-				index++;
+		if (
+			s1[i] == ' ' ||
+			s1[i] == '\t' ||
+			s1[i] == '\n' ||
+			s1[i] == ',' ||
+			s1[i] == ';' ||
+			s1[i] == '.' ||
+			s1[i] == '!' ||
+			s1[i] == '?' ||
+			s1[i] == '"' ||
+			s1[i] == '(' ||
+			s1[i] == ')' ||
+			s1[i] == '{' ||
+			s1[i] == '}' ||
+			i == 0
+		)
+		{
+			for (j = 'a'; j <= 'z'; j++)
+			{
+				if (s1[i + 1] == j && i != 0)
+				{
+					s1[i + 1] = j - 32;
+				} else if (s1[i] == j && i == 0)
+				{
+					s1[i] = j - 32;
+				}
+			}
+		}
 	}
-	return (str);
+	return (s1);
 }
-
