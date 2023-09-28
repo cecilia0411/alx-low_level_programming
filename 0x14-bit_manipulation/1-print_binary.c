@@ -2,19 +2,19 @@
 
 /**
  * print_binary - prints the binary representation of a number
- * @n: parameter
+ * @n: parameter to print in binary
  */
 
 void print_binary(unsigned long int n)
 {
 	int i, count = 0;
-	unsigned long int binar;
+	unsigned long int current;
 
 	for (i = 63; i >= 0; i--)
 	{
-		binar = n >> i;
+		current = n >> i;
 
-		if (binar & 1)
+		if (current & 1)
 		{
 			_putchar('1');
 			count++;
