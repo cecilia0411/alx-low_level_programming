@@ -13,5 +13,9 @@ int create_file(const char *filename, char *text_content);
 int append_text_to_file(const char *filename, char *text_content);
 char *create_buffer(char *file);
 void close_file(int fd);
+void read_elf_header(int fd, Elf64_Ehdr *header);
+void validate_elf_file(Elf64_Ehdr *header);
+void display_elf_header(Elf64_Ehdr *header);
+int main(int argc, char *argv[]);
 
 #endif
